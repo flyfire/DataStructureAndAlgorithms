@@ -94,6 +94,10 @@ public class DoubleLinkedList<E> {
         }
     }
 
+    public int getSize() {
+        return size;
+    }
+
     public static class Node<E> {
         E item;
         Node<E> next;

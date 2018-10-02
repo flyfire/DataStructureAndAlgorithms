@@ -7,19 +7,21 @@ import java.util.LinkedList;
  * Desc:
  */
 public class LinkedListReverse<E> {
-    private void reverse(DoubleLinkedList<E> list) {
+    public void reverse(DoubleLinkedList<E> list) {
         DoubleLinkedList.Node<E> curr = list.first;
+        list.last = curr;
         DoubleLinkedList.Node<E> reve = null;
         while (curr != null) {
             DoubleLinkedList.Node<E> temp = curr;
             curr = curr.next;
             temp.next = reve;
+            temp.prev = curr;
             reve = temp;
         }
         list.first = reve;
     }
 
-    private DoubleLinkedList.Node<E> reverseRecursively(DoubleLinkedList.Node<E> node){
+    public DoubleLinkedList.Node<E> reverseRecursively(DoubleLinkedList.Node<E> node){
         if (node == null || node.next == null) {
             return node;
         }
