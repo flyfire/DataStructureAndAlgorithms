@@ -44,7 +44,7 @@ public class DoubleLinkedList<E> {
             } else {
                 prev.next = newNode;
             }
-            prev = newNode;
+            target.prev = newNode;
         }
         size++;
     }
@@ -75,7 +75,7 @@ public class DoubleLinkedList<E> {
         return node(index).item;
     }
 
-    private Node<E> node(int index) {
+    public Node<E> node(int index) {
         if (index < 0 || index > size) {
             return null;
         }
@@ -94,7 +94,7 @@ public class DoubleLinkedList<E> {
         }
     }
 
-    private static class Node<E> {
+    public static class Node<E> {
         E item;
         Node<E> next;
         Node<E> prev;
