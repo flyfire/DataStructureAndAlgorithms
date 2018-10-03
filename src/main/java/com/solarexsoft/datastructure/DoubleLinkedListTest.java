@@ -4,7 +4,7 @@ package com.solarexsoft.datastructure;
  * Created by houruhou on 2018/10/2.
  * Desc:
  */
-public class Test {
+public class DoubleLinkedListTest {
     public static void main(String[] args) {
         DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
         list.add(111);
