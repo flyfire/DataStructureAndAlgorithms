@@ -1,5 +1,7 @@
 package com.solarexsoft.datastructure;
 
+import java.util.Stack;
+
 /**
  * Created by houruhou on 2018/10/3.
  * Desc:
@@ -44,5 +46,26 @@ public class BinaryTree {
         postOrderTraverse(root.leftChild);
         postOrderTraverse(root.rightChild);
         System.out.println("post --> " + root.data);
+    }
+
+    public <T> void preOrder(Node<T> root) {
+        if (root == null) {
+            return;
+        } else {
+            Stack<Node<T>> stack = new Stack<>();
+            stack.push(root);
+            while (!stack.isEmpty()) {
+                // 前序遍历先访问节点
+                Node<T> node = stack.pop();
+                System.out.println("PreOrder --> " + node.data);
+                // 前序遍历先访问左子树，后访问右子树，所以右子树先入栈，左子树后入栈
+                if (node.rightChild != null) {
+                    stack.push(node.rightChild);
+                }
+                if (node.leftChild != null) {
+                    stack.push(node.leftChild);
+                }
+            }
+        }
     }
 }
