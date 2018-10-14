@@ -5,6 +5,10 @@ package com.solarexsoft.datastructure.sort;
  * Desc:
  */
 public class QuickSort {
+    /**
+     * 适用于数据量大且是线性结构数据
+     * 短处：有大量重复数据的时候性能不好，单向链式结构不能用，性能不好
+     */
     public static void quickSort(int[] arr, int head, int tail) {
         if (head >= tail || arr == null || arr.length <= 1) {
             return;
@@ -51,9 +55,26 @@ public class QuickSort {
                 arr[j] = temp;
             }
         }
-        int temp = arr[i+1];
-        arr[i+1] = arr[high];
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[high];
         arr[high] = temp;
-        return i+1;
+        return i + 1;
+    }
+
+    static void printArray(int arr[]) {
+        int n = arr.length;
+        for (int i = 0; i < n; ++i)
+            System.out.print(arr[i] + " ");
+        System.out.println();
+    }
+
+    public static void main(String args[]) {
+        int arr[] = {10, 7, 8, 9, 1, 5};
+        int n = arr.length;
+
+        qSort(arr, 0, n - 1);
+
+        System.out.println("sorted array");
+        printArray(arr);
     }
 }
